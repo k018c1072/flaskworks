@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <form action="" method="post">
+        <p>入力歩数 : <input type="text" name="steps" id="steps"></p>
+        <input type="submit" value="送信"></form>
+    <hr>
+    <h1>平均歩数 : {{ avg }}</h1>
+    <ul>
+        {% for steps in steps_data %}
+        <li>{{ steps }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
