@@ -8,10 +8,10 @@ db_param = {
     'database': 'db1'
 }
 
-Task08_3 = Flask(__name__)
+Task08_4 = Flask(__name__)
 
 
-@Task08_3.route('/')
+@Task08_4.route('/')
 def index():
     conn = db.connect(**db_param)
     cur = conn.cursor()
@@ -23,7 +23,7 @@ def index():
     return render_template('index08_3.html', books=rows)
 
 
-@Task08_3.route('/send', methods=['POST'])
+@Task08_4.route('/send', methods=['POST'])
 def send():
     title = request.form.get('title')
     price = request.form.get('price')
@@ -46,7 +46,7 @@ def send():
     return redirect('/')
 
 
-@Task08_3.route('/delete', methods=['POST'])
+@Task08_4.route('/delete', methods=['POST'])
 def delete():
     del_list = request.form.getlist('del_list')
     conn = db.connect(**db_param)
@@ -61,5 +61,5 @@ def delete():
 
 
 if __name__ == "__main__":
-    Task08_3.debug = True
-    Task08_3.run()
+    Task08_4.debug = True
+    Task08_4.run()
