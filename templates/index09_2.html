@@ -26,7 +26,7 @@
             </tr>
             {% for (id, title, price, image) in list %}
             <tr>
-                <td><input type="checkbox" name="del_list" id="{{ id }}"></td>
+                <td><input type="checkbox" name="del_list" value="{{ id }}"></td>
                 <td><img src="./static/uploads/{{ image }}" width="50" height="50"></td>
                 <td>{{ title }}</td>
                 <td>{{ price }}円</td>
