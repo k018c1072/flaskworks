@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form action="/send" method="post" enctype="multipart/form-data">
+        <label for="title">タイトル</label>
+        <input type="text" name="title" id="title">
+        <label for="price">価格</label>
+        <input type="number" name="price" id="price">
+        <label for="img_file">画像</label>
+        <input type="file" name="img_file" id="img_file">
+        <input type="submit" value="送信">
+    </form>
+
+    <hr>
+    <form action="/delete" method="post">
+        <input type="submit" value="削除"><br>
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>タイトル</th>
+                <th>価格</th>
+            </tr>
+            {% for (id, title, price, image) in list %}
+            <tr>
+                <td><input type="checkbox" name="del_list" id="{{ id }}"></td>
+                <td><img src="./static/uploads/{{ image }}" width="50" height="50"></td>
+                <td>{{ title }}</td>
+                <td>{{ price }}円</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</html>
