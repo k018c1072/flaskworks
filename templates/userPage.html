@@ -6,7 +6,31 @@
     <title>ユーザーページ</title>
 </head>
 <body>
-    <p>{{ name }}さんのページ</p>
+    <h1>{{ name }}のToDoリスト</h1>
     <a href="/">ログアウト</a>
+    <hr>
+    <form action="/send" method="post" enctype="multipart/form-data">
+        <label for="title">追加項目：</label>
+        <input type="text" name="title" id="title">
+        <input type="submit" value="送信">
+    </form>
+    <hr>
+    <form action="/delete" method="post">
+        <input type="submit" value="削除"><br>
+        <table>
+            <tr>
+                <th></th>
+                <th>日付</th>
+                <th>タイトル</th>
+            </tr>
+            {% for (id, date, title, user) in todolist %}
+            <tr>
+                <td><input type="checkbox" name="del_list" value="{{ id }}"></td>
+                <td>{{ date }}</td>
+                <td>{{ title }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
 </body>
 </html>
